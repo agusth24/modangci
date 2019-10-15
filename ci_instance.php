@@ -73,7 +73,6 @@ load_class('Loader', 'core');
 load_class('Router', 'core');
 load_class('Input', 'core');
 load_class('Lang', 'core');
-load_class('DB', 'core');
 
 require(BASEPATH . 'core/Controller.php');
 
