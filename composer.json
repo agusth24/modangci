@@ -1,0 +1,25 @@
+{
+    "name": "agusth24/modangci",
+    "description": "A command-line tool for CodeIgniter 3.0",
+    "keywords": [
+        "cli",
+        "command",
+        "command line",
+        "codeigniter"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Agus Tri Haryono",
+            "homepage": "https://github.com/agusth24/modangci"
+        }
+    ],
+    "require": {
+        "php": ">=7.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Modangci\\": "src/"
+        }
+    }
+}
