@@ -9,7 +9,6 @@ class Modangci
     public $ci = null;
     public function __construct($argc, $argv, $ci)
     {
-        $ci->load->database();
         $ci->load->helper('file');
         if (!$ci->input->is_cli_request()) {
             echo "This is command line interface tool.";
