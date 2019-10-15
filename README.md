@@ -2,7 +2,7 @@
 Create, Read, Update and Delete (CRUD) Generator for Codeiginer3.
 
 ## Status
-Unstable
+Unstable - Development
 
 ## Installation
 Create project Codeigniter
