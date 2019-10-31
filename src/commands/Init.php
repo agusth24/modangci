@@ -83,7 +83,6 @@ class Init extends Commands
                         COLUMNS.IS_NULLABLE,DATA_TYPE,
                         COLUMNS.CHARACTER_MAXIMUM_LENGTH,
                         COLUMNS.NUMERIC_PRECISION,
-                        COLUMNS.DATETIME_PRECISION,
                         COLUMNS.COLUMN_KEY,
                         COLUMNS.EXTRA,
                         COLUMNS.COLUMN_COMMENT,
