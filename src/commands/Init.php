@@ -723,7 +723,7 @@ class Init extends Commands
                                             <option value=\"\"></option>
                                     <?php 
                                     foreach(\$$row->REFERENCED_TABLE_NAME as \$row):
-                                        echo '<option value=\"'.\$row->$row->REFERENCED_COLUMN_NAME.'\" ' . (\$datas != false ? \$datas->susrmodulSusrmdgroupNama == \$row->susrmdgroupNama ? 'selected' : '' : '') . '>'.\$row->$row->REFERENCED_COLUMN_NAME.'</option>';
+                                        echo '<option value=\"'.\$row->$row->REFERENCED_COLUMN_NAME.'\" ' . (\$datas != false ? \$datas->$row->REFERENCED_COLUMN_NAME == \$row->$row->COLUMN_NAME ? 'selected' : '' : '') . '>'.\$row->$row->REFERENCED_COLUMN_NAME.'</option>';
                                     endforeach;
                                     ?>
                                     </select>
