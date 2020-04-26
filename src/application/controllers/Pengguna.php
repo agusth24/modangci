@@ -121,7 +121,7 @@ class pengguna extends MY_Controller
             $password = generatepassword();
 
             $param = array(
-                'susrPassword' => password_hash('admin', PASSWORD_DEFAULT)
+                'susrPassword' => password_hash($password, PASSWORD_DEFAULT)
             );
             $keys = array('susrNama' => $key);
             $proses = $this->{$this->_model_name}->update('s_user', $param, $keys);
