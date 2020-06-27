@@ -214,11 +214,19 @@ class Init extends Commands
         $this->_ci->dbforge->create_table('s_user_modul_group_ref', TRUE, $attributes);
         $checkDatas = $this->get_by_id('s_user_modul_group_ref', ['susrmdgroupNama' => 'admin']);
         if (!$checkDatas)
+        {
             $this->insertDatas('s_user_modul_group_ref', [
                 'susrmdgroupNama' => 'admin',
                 'susrmdgroupDisplay' => 'Administrator',
                 'susrmdgroupIcon' => '<i class="la la-desktop"></i>'
             ]);
+            $this->insertDatas('s_user_modul_group_ref', [
+                'susrmdgroupNama' => 'tempmenu',
+                'susrmdgroupDisplay' => 'Temporary',
+                'susrmdgroupIcon' => '<i class="la la-star-o"></i>'
+            ]);
+        }
+            
 
         //Create Table s_user_modul_ref
         $this->_message("Creating Table s_user_modul_ref...");
@@ -723,7 +731,7 @@ class Init extends Commands
                                             <option value=\"\"></option>
                                     <?php 
                                     foreach(\$$row->REFERENCED_TABLE_NAME as \$row):
-                                        echo '<option value=\"'.\$row->$row->REFERENCED_COLUMN_NAME.'\" ' . (\$datas != false ? \$datas->$row->REFERENCED_COLUMN_NAME == \$row->$row->COLUMN_NAME ? 'selected' : '' : '') . '>'.\$row->$row->REFERENCED_COLUMN_NAME.'</option>';
+                                        echo '<option value=\"'.\$row->$row->REFERENCED_COLUMN_NAME.'\" ' . (\$datas != false ? \$row->$row->REFERENCED_COLUMN_NAME == \$datas->$row->COLUMN_NAME ? 'selected' : '' : '') . '>'.\$row->$row->REFERENCED_COLUMN_NAME.'</option>';
                                     endforeach;
                                     ?>
                                     </select>
@@ -891,6 +899,18 @@ class Init extends Commands
                 $this->model($table, $cname);
                 $this->view($table, $cname);
             }
+            $this->insertDatas('s_user_modul_ref', [
+                'susrmodulNama' => $cname,
+                'susrmodulNamaDisplay' => $dname,
+                'susrmodulSusrmdgroupNama' => 'tempmenu',
+                'susrmodulIsLogin' => 1,
+                'susrmodulUrut' => 1
+            ]);
+            $this->insertDatas('s_user_group_modul', [
+                'sgroupmodulSgroupNama' => 'ADMIN',
+                'sgroupmodulSusrmodulNama' => $cname,
+                'sgroupmodulSusrmodulRead' => 1
+            ]);
         }
     }
 }
